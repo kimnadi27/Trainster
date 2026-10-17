@@ -1,0 +1,10 @@
+[Unit]
+Description=Check Trainster certificate renewal twice a day
+
+[Timer]
+OnCalendar=*-*-* 00,12:00:00
+RandomizedDelaySec=30min
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,8 @@
+[Unit]
+Description=Renew Trainster HTTPS certificate
+Wants=network-online.target
+After=network-online.target nginx.service
+
+[Service]
+Type=oneshot
+ExecStart=/opt/trainster-certbot/bin/certbot renew --cert-name trainster-ip --quiet --deploy-hook "/usr/bin/systemctl reload nginx"

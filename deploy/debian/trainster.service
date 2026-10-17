@@ -1,0 +1,28 @@
+[Unit]
+Description=Trainster API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=trainster
+Group=trainster
+WorkingDirectory=/opt/trainster/server
+EnvironmentFile=/etc/trainster/server.env
+Environment=PYTHONUNBUFFERED=1
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/trainster/server/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 1 --proxy-headers --forwarded-allow-ips 127.0.0.1 --no-access-log
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=30
+UMask=0077
+StateDirectory=trainster
+StateDirectoryMode=0750
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/trainster
+
+[Install]
+WantedBy=multi-user.target

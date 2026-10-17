@@ -1,0 +1,4 @@
+# Copy to local.properties. MapLibre needs no API key.
+sdk.dir=C\:/Users/YOUR_USER/AppData/Local/Android/Sdk
+# Optional custom/self-hosted MapLibre style:
+# MAP_STYLE_URL=https://tiles.openfreemap.org/styles/liberty

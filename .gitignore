@@ -1,0 +1,32 @@
+# IDE and local credentials
+.idea/
+*.iml
+local.properties
+.env
+!.env.example
+
+# Android / local tools
+.gradle/
+.gradle-user/
+.tools/
+**/build/
+captures/
+
+# Python / runtime data
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+server/.pytest-*/
+.ruff_cache/
+*.sqlite
+*.sqlite3
+*.db
+server/data/
+server/.cache/
+
+# Device captures
+artifacts/device/
+
+# Private deployment archives and database snapshots
+artifacts/deploy/
